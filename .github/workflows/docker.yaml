@@ -17,7 +17,7 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull elasticsearch:8.17.2
+        docker pull postgres:15
 
     - name: Login to Alibaba Cloud Docker Registry
       run: |
@@ -25,14 +25,14 @@ jobs:
 
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q elasticsearch:8.17.2)
+        IMAGE_ID=$(docker images -q postgres:15)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:8.17.2
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:15
 
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:8.17.2
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:15
 
     - name: Logout from Docker Registry
       run: |

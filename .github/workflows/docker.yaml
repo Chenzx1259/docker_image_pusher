@@ -25,14 +25,14 @@ jobs:
 
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q infiniflow/ragflow:v0.16.0)
+        IMAGE_ID=$(docker images -q elasticsearch:8.17.2)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.16.0
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:8.17.2
 
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.16.0
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:8.17.2
 
     - name: Logout from Docker Registry
       run: |

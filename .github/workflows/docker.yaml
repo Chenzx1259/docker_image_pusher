@@ -25,14 +25,14 @@ jobs:
 
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q postgres:15)
+        IMAGE_ID=$(docker images -q jeessy/ddns-go:v6.8.1)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:15
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:jeessy/ddns-go:v6.8.1
 
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:15
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:jeessy/ddns-go:v6.8.1
 
     - name: Logout from Docker Registry
       run: |

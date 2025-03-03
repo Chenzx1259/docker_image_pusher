@@ -17,7 +17,7 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull jeessy/ddns-go:v6.8.1
+        docker pull snowdreamtech/frps:0.61
 
     - name: Login to Alibaba Cloud Docker Registry
       run: |
@@ -25,14 +25,14 @@ jobs:
 
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q jeessy/ddns-go:v6.8.1)
+        IMAGE_ID=$(docker images -q snowdreamtech/frps:0.61)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v6.8.1
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:0.61
 
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v6.8.1
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:0.61
 
     - name: Logout from Docker Registry
       run: |

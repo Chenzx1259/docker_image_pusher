@@ -27,12 +27,12 @@ jobs:
       run: |
         IMAGE_ID=$(docker images -q docker pull jeessy/ddns-go:v6.8.1-armv7)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:armv7
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v6.8.1-armv7
 
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:armv7
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v6.8.1-armv7
 
     - name: Logout from Docker Registry
       run: |

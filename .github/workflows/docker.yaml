@@ -17,19 +17,19 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull --platform linux/arm/v7 zhangsean/nps:v0.27.8
+        docker pull snowdreamtech/frpc:0.61.1
     - name: Login to Alibaba Cloud Docker Registry
       run: |
         echo "czxzj1259" | docker login --username="52088xiangzi@163.com" --password-stdin registry.cn-hangzhou.aliyuncs.com
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q zhangsean/nps:v0.27.8)
+        IMAGE_ID=$(docker images -q snowdreamtech/frpc:0.61.1)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.27.8
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:0.61.1
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.27.8
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:0.61.1
     - name: Logout from Docker Registry
       run: |
         docker logout registry.cn-hangzhou.aliyuncs.com

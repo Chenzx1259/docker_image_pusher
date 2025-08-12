@@ -17,19 +17,19 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull opensearchproject/opensearch:2.19.3
+        docker pull infiniflow/infinity:v0.6.0-dev5
     - name: Login to Alibaba Cloud Docker Registry
       run: |
         echo "czxzj1259" | docker login --username="52088xiangzi@163.com" --password-stdin registry.cn-hangzhou.aliyuncs.com
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q opensearchproject/opensearch:2.19.3)
+        IMAGE_ID=$(docker images -q infiniflow/infinity:v0.6.0-dev5)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:2.19.3
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.6.0-dev5
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:2.19.3
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.6.0-dev5
     - name: Logout from Docker Registry
       run: |
         docker logout registry.cn-hangzhou.aliyuncs.com

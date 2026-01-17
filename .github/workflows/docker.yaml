@@ -17,19 +17,19 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull hanxi/xiaomusic:v0.3.100
+        docker pull neo4j:enterprise-ubi9
     - name: Login to Alibaba Cloud Docker Registry
       run: |
         echo "czxzj1259" | docker login --username="52088xiangzi@163.com" --password-stdin registry.cn-hangzhou.aliyuncs.com
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q hanxi/xiaomusic:v0.3.100)
+        IMAGE_ID=$(docker images -q neo4j:enterprise-ubi9)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.3.100
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:enterprise-ubi9
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:v0.3.100
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:enterprise-ubi9
     - name: Logout from Docker Registry
       run: |
         docker logout registry.cn-hangzhou.aliyuncs.com

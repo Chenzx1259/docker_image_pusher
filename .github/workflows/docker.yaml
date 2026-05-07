@@ -17,19 +17,19 @@ jobs:
     - name: Pull Docker Image
       run: |
         echo "Pulling Docker image from Docker Hub..."
-        docker pull linuxserver/nextcloud:31.0.14-previous
+        docker pull linuxserver/nextcloud:32.0.9-previous
     - name: Login to Alibaba Cloud Docker Registry
       run: |
         echo "czxzj1259" | docker login --username="52088xiangzi@163.com" --password-stdin registry.cn-hangzhou.aliyuncs.com
     - name: Tag Docker Image
       run: |
-        IMAGE_ID=$(docker images -q linuxserver/nextcloud:31.0.14-previous)
+        IMAGE_ID=$(docker images -q linuxserver/nextcloud:32.0.9-previous)
         echo "Tagging image with ID: $IMAGE_ID"
-        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:31.0.14-previous
+        docker tag "$IMAGE_ID" registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:32.0.9-previous
     - name: Push Docker Image to Alibaba Cloud
       run: |
         echo "Pushing Docker image to Alibaba Cloud..."
-        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:31.0.14-previous
+        docker push registry.cn-hangzhou.aliyuncs.com/chenzx12/chenzx_hunnu:32.0.9-previous
     - name: Logout from Docker Registry
       run: |
         docker logout registry.cn-hangzhou.aliyuncs.com
